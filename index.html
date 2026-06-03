@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор КБЖУ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero" aria-labelledby="app-title">
+      <div>
+        <p class="eyebrow">Дневник питания</p>
+        <h1 id="app-title">Калькулятор калорий и КБЖУ</h1>
+        <p class="hero__text">Добавляйте продукты, указывайте вес в граммах и следите за итогами калорий, белков, жиров и углеводов за день.</p>
+      </div>
+      <div class="hero__badge" aria-hidden="true">КБЖУ</div>
+    </section>
+
+    <section class="card" aria-labelledby="form-title">
+      <div class="section-heading">
+        <h2 id="form-title">Добавить продукт</h2>
+        <p>Введите значения КБЖУ на 100 г продукта.</p>
+      </div>
+
+      <form id="food-form" class="food-form">
+        <label>
+          Продукт
+          <input id="food-name" name="name" type="text" placeholder="Например, овсянка" required>
+        </label>
+        <label>
+          Вес, г
+          <input id="food-weight" name="weight" type="number" min="1" step="1" placeholder="150" required>
+        </label>
+        <label>
+          Калории / 100 г
+          <input id="food-calories" name="calories" type="number" min="0" step="0.1" placeholder="370" required>
+        </label>
+        <label>
+          Белки / 100 г
+          <input id="food-protein" name="protein" type="number" min="0" step="0.1" placeholder="12.3" required>
+        </label>
+        <label>
+          Жиры / 100 г
+          <input id="food-fat" name="fat" type="number" min="0" step="0.1" placeholder="6.1" required>
+        </label>
+        <label>
+          Углеводы / 100 г
+          <input id="food-carbs" name="carbs" type="number" min="0" step="0.1" placeholder="59.5" required>
+        </label>
+        <button type="submit">Добавить в дневник</button>
+      </form>
+    </section>
+
+    <section class="summary-grid" aria-label="Итоги за день">
+      <article class="summary-card summary-card--calories">
+        <span>Калории</span>
+        <strong id="total-calories">0</strong>
+        <small>ккал</small>
+      </article>
+      <article class="summary-card">
+        <span>Белки</span>
+        <strong id="total-protein">0</strong>
+        <small>г</small>
+      </article>
+      <article class="summary-card">
+        <span>Жиры</span>
+        <strong id="total-fat">0</strong>
+        <small>г</small>
+      </article>
+      <article class="summary-card">
+        <span>Углеводы</span>
+        <strong id="total-carbs">0</strong>
+        <small>г</small>
+      </article>
+    </section>
+
+    <section class="card diary" aria-labelledby="diary-title">
+      <div class="section-heading section-heading--row">
+        <div>
+          <h2 id="diary-title">Рацион на сегодня</h2>
+          <p id="empty-state">Пока нет добавленных продуктов.</p>
+        </div>
+        <button id="clear-day" class="button-secondary" type="button">Очистить день</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Продукт</th>
+              <th>Вес</th>
+              <th>Ккал</th>
+              <th>Б</th>
+              <th>Ж</th>
+              <th>У</th>
+              <th><span class="visually-hidden">Действия</span></th>
+            </tr>
+          </thead>
+          <tbody id="food-list"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
